@@ -40,105 +40,120 @@
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
-                        <th rowspan="2">Frecuencia Respiratoria</th>
-                        <th colspan="3">Radiografía de Torax</th>
-                        <th rowspan="2">Sum</th>
-                        <th rowspan="2">Area Score</th>
+                        <th rowspan="2">IKCTV</th>
+                        <th colspan="4">Valores</th>
+                        <th rowspan="2">Puntaje </th>
                         <th rowspan="2">%</th>
                         <th rowspan="2">Subtotal</th>
                     </tr>
                     <tr>
-                        <th>Erythema</th>
-                        <th>White Halo</th>
-                        <th>Fissured Tongue</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Apex</td>
-                        <td><input id="Frecuencia Respiratoria" placeholder="0 - 3" type="text" class="form-control"
+                        <td>Frecuencia Respiratoria</td>
+                        <td><input id="fr_cero" placeholder="30" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 3.</div>
+                            <div class="invalid-feedback">Ingrese un valor igual a 30</div>
                         </td>
-                        <td><input id="apex-white_halo" placeholder="0 - 3" type="text" class="form-control"
+                        <td><input id="fr_uno" placeholder="31 - 45" type="text" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Enter a number between 0 and 4.</div>
                         </td>
-                        <td><input id="apex-fissured_tongue" placeholder="0 - 1" type="text" class="form-control"
+                        <td><input id="fr_dos" placeholder="46 - 60" type="text" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Enter a number between 0 and 1.</div>
                         </td>
-                        <td id="apex-sum"></td>
-                        <td><input id="apex-area_score" placeholder="0 - 6" type="text" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 6.</div>
+                        <td><input id="fr_tres" placeholder=">60" type="text" class="form-control"
+                            size="3"></input>
+                        <div class="invalid-feedback">Enter a number between 0 and 1.</div>
                         </td>
-                        <td id="apex-percentage">0.1</td>
-                        <td id="apex-partial_total"></td>
+                        <td><input id="fr_ptje" placeholder="0 - 3" type="text" class="form-control"
+                                size="3"></input>
+                            <div class="invalid-feedback"></div>
+                        </td>
+                        <td id="fr-percentage">0.1</td>
+                        <td id="fr-partial_total"></td>
                     </tr>
                     <tr>
-                        <td>Borders</td>
-                        <td><input id="borders-erythema" placeholder="0 - 3" type="text" class="form-control"
+                        <td>Saturación de O2</td>
+                        <td><input id="sat_cero" placeholder="98 - 100%" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback">Ingrese un valor entre 98 y 100.</div>
                         </td>
-                        <td><input id="borders-white_halo" placeholder="0 - 3" type="text" class="form-control"
+                        <td><input id="sat_uno" placeholder="95 - 97%" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback">Ingrese un valor entre 95 y 97.</div>
                         </td>
-                        <td><input id="borders-fissured_tongue" placeholder="0 - 1" type="text" class="form-control"
+                        <td><input id="sat_dos" placeholder="92 - 94%" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 1.</div>
+                            <div class="invalid-feedback">Ingrese un valor entre 92 y 94%.</div>
                         </td>
-                        <td id="borders-sum"></td>
-                        <td><input id="borders-area_score" placeholder="0 - 6" type="text" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 6.</div>
+                        <td><input id="sat_tres" placeholder="<=91%" type="text" class="form-control"
+                            size="3"></input>
+                        <div class="invalid-feedback">Ingrese un valor menor o igual a 91.</div>
                         </td>
-                        <td id="borders-percentage">0.3</td>
-                        <td id="borders-partial_total"></td>
+                        <td><input id="sat_ptje" placeholder="0 - 3" type="text" class="form-control"
+                            size="3"></input>
+                            <div class="invalid-feedback"></div>
+                        </td>
+                        <td id="sat-percentage">0.3</td>
+                        <td id="sat-partial_total"></td>
                     </tr>
                     <tr>
-                        <td>Lingual Belly</td>
-                        <td><input id="lingual_belly-erythema" placeholder="0 - 3" type="text" class="form-control"
+                        <td>Aporte de O2</td>
+                        <td><input id="ApA_cero" placeholder="Sin aporte" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback"></div> <!-- quizas podemos poner 21% -->
                         </td>
-                        <td><input id="lingual_belly-white_halo" placeholder="0 - 3" type="text" class="form-control"
+                        <td><input id="APA_uno" placeholder="22 - 29%" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback">Ingrese un valor entre 22 y 29%.</div>
                         </td>
-                        <td><input id="lingual_belly-fissured_tongue" placeholder="0 - 1" type="text"
+                        <td><input id="ApA_dos" placeholder="30 - 49%" type="text"
                                 class="form-control" size="3"></input></td>
-                        <td id="lingual_belly-sum"></td>
-                        <td><input id="lingual_belly-area_score" placeholder="0 - 6" type="text" class="form-control"
+                            <div class="invalid-feedback">Ingrese un valor entre 30 y 49%.</div>
+                        </td>    
+                        <td><input id="ApA_tres" placeholder=">50%" type="text"
+                                class="form-control" size="3"></input></td>
+                            <div class="invalid-feedback">Ingrese un valor >50%.</div>  
+                        </td>                                                
+                        <td><input id="ptje_ApA" placeholder="0 - 3" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 6.</div>
+                            <div class="invalid-feedback">.</div>
                         </td>
-                        <td id="lingual_belly-percentage">0.2</td>
-                        <td id="lingual_belly-partial_total"></td>
+                        <td id="ApA-percentage">0.2</td>
+                        <td id="ApA-partial_total"></td>
                     </tr>
                     <tr>
-                        <td>Dorsum</td>
-                        <td><input id="dorsum-erythema" placeholder="0 - 3" type="text" class="form-control"
+                        <td>Broncodilatación</td>
+                        <td><input id="brd_cero" placeholder="Sin NBZ/puff" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="dorsum-white_halo" placeholder="0 - 3" type="text" class="form-control"
+                        <td><input id="brd_uno" placeholder="puff c/4-8hrs" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 4.</div>
+                            <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="dorsum-fissured_tongue" placeholder="0 - 1" type="text" class="form-control"
+                        <td><input id="brd_dos" placeholder="NBZ c/3-4hrs" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 1.</div>
+                            <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td id="dorsum-sum"></td>
-                        <td><input id="dorsum-area_score" placeholder="0 - 6" type="text" class="form-control"
+                        <td><input id="brd_tres" placeholder="set NBZ" type="text" class="form-control"
+                            size="3"></input>
+                        <div class="invalid-feedback">Ingrese valor 3.</div>
+                        </td>
+                        <td><input id="ptje_brd" placeholder="0 - 3" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Enter a number between 0 and 6.</div>
+                            <div class="invalid-feedback"></div>
                         </td>
-                        <td id="dorsum-percentage">0.4</td>
-                        <td id="dorsum-partial_total"></td>
+                        <td id="brd-percentage">0.4</td>
+                        <td id="brd-partial_total"></td>
                     </tr>
                 </tbody>
             </table>
