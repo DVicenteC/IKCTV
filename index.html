@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <title>Indice Kinésico de Carga de Trabajo Ventilatorio</title>
+    <body style="background-color:powderblue;"></body>
 </head>
 
 <body>
@@ -53,15 +54,26 @@
                     <input type="date" class="form-control form-control-lg" id="observation_date">
                 </div>
             </div>
-            
+            <tr>
+                <td>Frecuencia Respiratoria</td>
+                <td><input id="fr_cero" value="0" placeholder="30" type="text" class="form-control"
+                        size="3"></input>
+                        
+                </td>
+                <tr>
+                    <td>Saturación de O2</td>
+                    <td><input id="fr_cero" value="0" placeholder="30" type="text" class="form-control"
+                            size="3"></input>
+                            
+                    </td>    
         </form>
         <div class="table-responsive">
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
-                        <th rowspan="2">IKCTV</th>
+                        <th rowspan="2"></th>
                         <th colspan="4">Valores</th>
-                        <th rowspan="2">Puntaje </th>
+                        <!--<th rowspan="2">Puntaje </th>-->
                     </tr>
                     <tr>
                         <th>0</th>
@@ -73,26 +85,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Frecuencia Respiratoria</td>
-                        <td><input name="fr_cero" value="0" placeholder="30" type="radio" class="form-control"
+                        <!--<td>Frecuencia Respiratoria</td>
+                        <td><input id="fr_cero" value="0" placeholder="30" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">Ingrese un valor igual a 30</div>
-                        </td>
-                        <td><input name="fr_cero" placeholder="31 - 45" type="radio" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback">Ingrese un valor entre 31 y 45.</div>
-                        </td>
-                        <td><input name="fr_cero" placeholder="46 - 60" type="radio" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback">Ingrese un valor entre 46 y 60.</div>
-                        </td>
-                        <td><input name="fr_cero" placeholder=">60" type="radio" class="form-control"
-                            size="3"></input>
-                        <div class="invalid-feedback">Ingrese un valor >60.</div>
-                        </td>
-                        <td><input id="fr_ptje" placeholder="0 - 3" type="text" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback"></div>
+                                <input type="text" class="form-control form-control-lg" id="fr_cero">
                         </td>
                       
                     </tr>
@@ -117,177 +113,178 @@
                         <td><input id="sat_ptje" placeholder="0 - 3" type="text" class="form-control"
                             size="3"></input>
                             <div class="invalid-feedback"></div>
-                        </td>
+                        </td>-->
                        
                     </tr>
                     <tr>
                         <td>Aporte de O2</td>
-                        <td><input id="ApA_cero" placeholder="Sin aporte" type="text" class="form-control"
+                        <td><input name="ApA_cero" placeholder="Sin aporte" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"></div> <!-- quizas podemos poner 21% -->
                         </td>
-                        <td><input id="APA_uno" placeholder="22 - 29%" type="text" class="form-control"
+                        <td><input name="ApA_cero" placeholder="22 - 29%" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese un valor entre 22 y 29.</div>
                         </td>
-                        <td><input id="ApA_dos" placeholder="30 - 49%" type="text"
+                        <td><input name="ApA_cero" placeholder="30 - 49%" type="radio"
                                 class="form-control" size="3"></input></td>
                             <div class="invalid-feedback">Ingrese un valor entre 30 y 49.</div>
                         </td>    
-                        <td><input id="ApA_tres" placeholder=">50%" type="text"
+                        <td><input name="ApA_cero" placeholder=">50%" type="radio"
                                 class="form-control" size="3"></input></td>
                             <div class="invalid-feedback">Ingrese un valor >50.</div>  
                         </td>                                                
-                        <td><input id="ptje_ApA" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input id="ptje_ApA" placeholder="0 - 3" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback">.</div>
+                            <div class="invalid-feedback">.</div>-->
                         </td>
                        
                     </tr>
                     <tr>
                         <td>Broncodilatación</td>
-                        <td><input id="brd_cero" placeholder="Sin NBZ/puff" type="text" class="form-control"
+                        <td><input name="brd_cero" placeholder="Sin NBZ/puff" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="brd_uno" placeholder="puff c/4-8hrs" type="text" class="form-control"
+                        <td><input name="brd_cero" placeholder="puff c/4-8hrs" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="brd_dos" placeholder="NBZ c/3-4hrs" type="text" class="form-control"
+                        <td><input name="brd_cero" placeholder="NBZ c/3-4hrs" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td><input id="brd_tres" placeholder="set NBZ" type="text" class="form-control"
+                        <td><input name="brd_cero" placeholder="set NBZ" type="radio" class="form-control"
                             size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 3.</div>
                         </td>
-                        <td><input id="ptje_brd" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input id="ptje_brd" placeholder="0 - 3" type="text" class="form-control"
                                 size="3"></input>
-                            <div class="invalid-feedback"></div>
+                            <div class="invalid-feedback"></div>-->
                         </td>
                       
                     <tr>
-                        <td>Radiografía Anteroposterior de Tórax</td>
-                        <td><input id="RxAp_cero" placeholder="No" type="text" class="form-control"
+                        <td>Radiografía Anteroposterior de Tórax (RxAP)</td>
+                        <td><input name="RxAp_cero" placeholder="No" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="RxAp_uno" placeholder="Hi" type="text" class="form-control"
+                        <td><input name="RxAp_cero" placeholder="Hi" type="radio" class="form-control"
                                 size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="RxAp_dos" placeholder="Hi + 1/3" type="text" class="form-control"
+                        <td><input name="RxAp_cero" placeholder="Hi + 1/3" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td><input id="RxAp_tres" placeholder="Hi + 2/3" type="text" class="form-control"
+                        <td><input name="RxAp_cero" placeholder="Hi + 2/3" type="radio" class="form-control"
                             size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 3.</div>
                         </td>
-                        <td><input id="RxAp_ptje" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input name="RxAp_ptje" placeholder="0 - 3" type="text" class="form-control"
                             size="3"></input>
-                        <div class="invalid-feedback"></div>
+                        <div class="invalid-feedback"></div>-->
                         </td>
                       
                  <tr>
                         <td>Uso de Músculos Accesorios (UMA)</td>
-                        <td><input id="UMA_cero" placeholder="SinUMA" type="text" class="form-control"
+                        <td><input name="UMA_cero" placeholder="SinUMA" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="UMA_uno" placeholder="Dia-IC" type="text" class="form-control"
+                        <td><input name="UMA_cero" placeholder="Dia-IC" type="radio" class="form-control"
                                 size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="UMA_dos" placeholder="DialC-SC" type="text" class="form-control"
+                        <td><input name="UMA_cero" placeholder="DialC-SC" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td><input id="UMA_tres" placeholder="Abd" type="text" class="form-control"
+                        <td><input name="UMA_cero" placeholder="Abd" type="radio" class="form-control"
                             size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 3.</div>
                         </td>
-                        <td><input id="UMA_ptje" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input id="UMA_ptje" placeholder="0 - 3" type="text" class="form-control"
                             size="3"></input>
-                        <div class="invalid-feedback"></div>
+                        <div class="invalid-feedback"></div>-->
                         </td>
                                 
                     </tr>
                 <tr>
                         <td>Resistencia Vía Aérea (RVA)</td>
-                        <td><input id="RVA_cero" placeholder="Sin" type="text" class="form-control"
+                        <td><input name="RVA_cero" placeholder="Sin" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="RVA_uno" placeholder="Fe" type="text" class="form-control"
+                        <td><input name="RVA_cero" placeholder="Fe" type="radio" class="form-control"
                                 size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="RVA_dos" placeholder="Sib Esp" type="text" class="form-control"
+                        <td><input name="RVA_cero" placeholder="Sib Esp" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td><input id="RVA_tres" placeholder="Sib Ins-Esp" type="text" class="form-control"
+                        <td><input name="RVA_cero" placeholder="Sib Ins-Esp" type="radio" class="form-control"
                             size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 3.</div>
                         </td>
-                        <td><input id="RVA_ptje" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input id="RVA_ptje" placeholder="0 - 3" type="text" class="form-control"
                             size="3"></input>
-                        <div class="invalid-feedback"></div>
+                        <div class="invalid-feedback"></div>-->
                         </td>
                               
                     </tr>  
                 <tr>
-                        <td>Permeabilización de la Vía Aérea (PVA)</td>
-                        <td><input id="PVA_cero" placeholder="No" type="text" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
-                        </td>
-                        <td><input id="PVA_uno" placeholder="2 int." type="text" class="form-control"
-                                size="3"></input>
-                        <div class="invalid-feedback">Ingrese valor 1 .</div>
-                        </td>
-                        <td><input id="PVA_dos" placeholder="3-4 int." type="text" class="form-control"
-                                size="3"></input>
-                            <div class="invalid-feedback">Ingrese valor 2.</div>
-                        </td>
-                        <td><input id="PVA_tres" placeholder=">5 int." type="text" class="form-control"
-                            size="3"></input>
-                        <div class="invalid-feedback">Ingrese valor 3.</div>
-                        </td>
-                        <td><input id="PVA_ptje" placeholder="0 - 3" type="text" class="form-control"
-                            size="3"></input>
-                        <div class="invalid-feedback"></div>
-                        </td>
+                        
                   
                     </tr>  
                 <tr>
                         <td>Mecanismo de Tos (MecTo)</td>
-                        <td><input id="MecTOS_cero" placeholder="Espontánea" type="text" class="form-control"
+                        <td><input name="MecTOS_cero" placeholder="Espontánea" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
                         </td>
-                        <td><input id="MecTOS_uno" placeholder="U o VRI ↓" type="text" class="form-control"
+                        <td><input name="MecTOS_cero" placeholder="U o VRI ↓" type="radio" class="form-control"
                                 size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 1 .</div>
                         </td>
-                        <td><input id="MecTOS_dos" placeholder="FC o FE ↓" type="text" class="form-control"
+                        <td><input name="MecTOS_cero" placeholder="FC o FE ↓" type="radio" class="form-control"
                                 size="3"></input>
                             <div class="invalid-feedback">Ingrese valor 2.</div>
                         </td>
-                        <td><input id="MecTOS_tres" placeholder="Sin tos" type="text" class="form-control"
+                        <td><input name="MecTOS_cero" placeholder="Sin tos" type="radio" class="form-control"
                             size="3"></input>
                         <div class="invalid-feedback">Ingrese valor 3.</div>
                         </td>
-                        <td><input id="MecTOS_ptje" placeholder="0 - 3" type="text" class="form-control"
+                        <!--<td><input id="MecTOS_ptje" placeholder="0 - 3" type="text" class="form-control"
                             size="3"></input>
-                        <div class="invalid-feedback"></div>
+                        <div class="invalid-feedback"></div>-->
                         </td>
                        
                     </tr>        
                 </tbody>
             </table>
+            <td>Permeabilización de la Vía Aérea (PVA)</td>
+                        <td><input id="PVA_cero" placeholder="No" type="checkbox" class="form-control"
+                                size="1"></input>
+                            <div class="invalid-feedback"> <!--quizas poner 0 en este valor??-->.</div>
+                        </td>
+                        <td><input name="PVA_uno" placeholder="2 int." type="text" class="form-control"
+                                size="3"></input>
+                        <div class="invalid-feedback">Ingrese valor 1 .</div>
+                        </td>
+                        <!--<td><input name="PVA_dos" placeholder="3-4 int." type="radio" class="form-control"
+                                size="3"></input>
+                            <div class="invalid-feedback">Ingrese valor 2.</div>
+                        </td>
+                        <td><input name="PVA_tres" placeholder=">5 int." type="radio" class="form-control"
+                            size="3"></input>
+                        <div class="invalid-feedback">Ingrese valor 3.</div>
+                        </td>
+                        <td><input id="PVA_ptje" placeholder="0 - 3" type="text" class="form-control"
+                            size="3"></input>
+                        <div class="invalid-feedback"></div>-->
+                        </td>
         </div>
         <div id="result" class="table-responsive" style="display: none;">
             <h2>Result</h2>
