@@ -17,6 +17,13 @@
         <hr>
         <form>
             <div class="form-group row">
+                <label for="patient_rut" class="col-sm-1 col-form-label col-form-label-lg">Rut</label>
+                <div class="col-sm-8">
+                    <input class="text" class="form-control form-control-lg" id="rut" />
+                    <br>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="patient_name" class="col-sm-1 col-form-label col-form-label-lg">Nombre Paciente</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control form-control-lg" id="patient_name">
@@ -28,13 +35,7 @@
                     <input type="date" class="form-control form-control-lg" id="observation_date">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="patient_rut" class="col-sm-1 col-form-label col-form-label-lg">Rut</label>
-                <div class="col-sm-8">
-                    <input class="text" class="form-control form-control-lg" id="rut" />
-                    <br>
-                </div>
-            </div>
+            
         </form>
         <div class="table-responsive">
             <table class="table table-bordered table-sm">
@@ -43,8 +44,6 @@
                         <th rowspan="2">IKCTV</th>
                         <th colspan="4">Valores</th>
                         <th rowspan="2">Puntaje </th>
-                        <th rowspan="2">%</th>
-                        <th rowspan="2">Subtotal</th>
                     </tr>
                     <tr>
                         <th>0</th>
@@ -77,8 +76,7 @@
                                 size="3"></input>
                             <div class="invalid-feedback"></div>
                         </td>
-                        <td id="fr-percentage">0.1</td>
-                        <td id="fr-partial_total"></td>
+                      
                     </tr>
                     <tr>
                         <td>Saturación de O2</td>
@@ -102,8 +100,7 @@
                             size="3"></input>
                             <div class="invalid-feedback"></div>
                         </td>
-                        <td id="sat-percentage">0.3</td>
-                        <td id="sat-partial_total"></td>
+                       
                     </tr>
                     <tr>
                         <td>Aporte de O2</td>
@@ -127,8 +124,7 @@
                                 size="3"></input>
                             <div class="invalid-feedback">.</div>
                         </td>
-                        <td id="ApA-percentage">0.2</td>
-                        <td id="ApA-partial_total"></td>
+                       
                     </tr>
                     <tr>
                         <td>Broncodilatación</td>
@@ -152,8 +148,7 @@
                                 size="3"></input>
                             <div class="invalid-feedback"></div>
                         </td>
-                        <td id="brd-percentage">0.4</td>
-                        <td id="brd-partial_total"></td>
+                      
                     <tr>
                         <td>Radiografía Anteroposterior de Tórax</td>
                         <td><input id="RxAp_cero" placeholder="No" type="text" class="form-control"
@@ -176,8 +171,7 @@
                             size="3"></input>
                         <div class="invalid-feedback"></div>
                         </td>
-                        <td id="RxAp-percentage">0.1</td>
-                        <td id="RxAp-partial_total"></td> 
+                      
                  <tr>
                         <td>Uso de Músculos Accesorios (UMA)</td>
                         <td><input id="UMA_cero" placeholder="SinUMA" type="text" class="form-control"
@@ -200,8 +194,7 @@
                             size="3"></input>
                         <div class="invalid-feedback"></div>
                         </td>
-                        <td id="UMA-percentage">0.1</td>
-                        <td id="UMA-partial_total"></td>             
+                                
                     </tr>
                 <tr>
                         <td>Resistencia Vía Aérea (RVA)</td>
@@ -225,8 +218,7 @@
                             size="3"></input>
                         <div class="invalid-feedback"></div>
                         </td>
-                        <td id="RVA-percentage">0.1</td>
-                        <td id="RVA-partial_total"></td>             
+                              
                     </tr>  
                 <tr>
                         <td>Permeabilización de la Vía Aérea (PVA)</td>
@@ -250,8 +242,7 @@
                             size="3"></input>
                         <div class="invalid-feedback"></div>
                         </td>
-                        <td id="PVA-percentage">0.1</td>
-                        <td id="PVA-partial_total"></td>             
+                  
                     </tr>  
                 <tr>
                         <td>Mecanismo de Tos (MecTo)</td>
@@ -275,8 +266,7 @@
                             size="3"></input>
                         <div class="invalid-feedback"></div>
                         </td>
-                        <td id="MecTOS-percentage">0.1</td>
-                        <td id="MecTOS-partial_total"></td>             
+                       
                     </tr>        
                 </tbody>
             </table>
