@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    // resultados = {
+    //     "fr" : null,
+    //     "s02" : null
+    // }
+    // $("#patient_fr").change(function () {
+    //     valor = $(this).val()
+    //     if (valor > 20 && valor < 30) {
+    //         resultados["fr"] = 2
+    //     } else {
+    //         $(this).removeClass("is-invalid").addClass("is-valid")
+    //     }
+    // });
     function isBetween(n, a, b) {
         return (n - a) * (n - b) <= 0
     }
