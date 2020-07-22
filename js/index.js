@@ -11,16 +11,17 @@ $(document).ready(function () {
         scores: {
             "fr":null,
             "so":null
-        }
-    }
-    //$("#patient_birthday").change(function (){
-        moment.defaultFormat = "DD-MM-YYYY";
-        var m = moment$("#patient_birthday", "DD-MM-YYYY");
-        console.log('Edad'+m.fromNow(true) + 'años');
-        var years = moment().diff(m, 'years', false);
-        var months = moment().diff(m.add(years, 'years'), 'months', false);
-    alert(m);
-        // alert(years + ' years, ' + months + 'months');
+        }}
+    });
+    $("#patient_birthday").change(function (){
+        //moment.defaultFormat = "DD-MM-YYYY";
+        //var now = moment();
+      //  var m = moment("#patient_birthday").format("DD-MM-YYYY")
+    //alert(m)
+        //console.log('Edad'+m.fromNow(true) + 'años');
+        var years = moment().diff("#patient_birthday", 'years', false);
+        var months = moment().diff("#patient_birthday".add(years, 'years'), 'months', false);
+    alert(years + ' years, ' + months + 'months');
     });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
@@ -197,7 +198,7 @@ $(document).ready(function () {
     });
     $('input[name=apa]').click(function(){
         console.log('Hey you clicked this: ' + this.value);
-      
+          
         if(this.value == 'apa_0'){
           rate_value = $('0').value;
         } else if(this.value =='apa_1'){
@@ -213,4 +214,3 @@ $(document).ready(function () {
         $("[for=file]").html(this.files[0].name);
         $("#preview").attr("src", URL.createObjectURL(this.files[0]));
     })
-
