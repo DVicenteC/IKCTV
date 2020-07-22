@@ -186,6 +186,19 @@ $(document).ready(function () {
             $("#result").hide()
         }
     });
+    $('input[name=apa]').click(function(){
+        console.log('Hey you clicked this: ' + this.value);
+      
+        if(this.value == 'apa_0'){
+          rate_value = $('0').value;
+        } else if(this.value =='apa_1'){
+         rate_value = $('1').value;
+        } else if(this.value =='apa_2'){
+         rate_value = $('2').value;
+        }  
+      
+        $('#results').innerHTML = rate_value;
+      });
 
     $("input[type=file]").on("change", function () {
         $("[for=file]").html(this.files[0].name);
