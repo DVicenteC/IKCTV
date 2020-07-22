@@ -13,6 +13,15 @@ $(document).ready(function () {
             "so":null
         }
     }
+    //$("#patient_birthday").change(function (){
+        moment.defaultFormat = "DD-MM-YYYY";
+        var m = moment$("#patient_birthday", "DD-MM-YYYY");
+        console.log('Edad'+m.fromNow(true) + 'años');
+        var years = moment().diff(m, 'years', false);
+        var months = moment().diff(m.add(years, 'years'), 'months', false);
+    alert(m);
+        // alert(years + ' years, ' + months + 'months');
+    });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
     //     if (valor > 20 && valor < 30) {
@@ -205,4 +214,3 @@ $(document).ready(function () {
         $("#preview").attr("src", URL.createObjectURL(this.files[0]));
     })
 
-});
