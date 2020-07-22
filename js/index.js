@@ -4,12 +4,12 @@ $(document).ready(function () {
             "nombre":null
         },
         values: {
-            "fr":null
+            "fr":null,
             "so":null
 
         },
         scores: {
-            "fr":null
+            "fr":null,
             "so":null
         }
     }
