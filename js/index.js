@@ -4,9 +4,12 @@ $(document).ready(function () {
             "nombre":null
         },
         values: {
+            "fr":null
             "so":null
+
         },
         scores: {
+            "fr":null
             "so":null
         }
     }
@@ -21,6 +24,42 @@ $(document).ready(function () {
     function isBetween(n, a, b) {
         return (n - a) * (n - b) <= 0
     }
+    $("#fr").change(function () {
+        value = $(this).val()
+        if (value < 10) {
+            console.log("error")
+            $("#fr_score").hide()
+            $(this).removeClass("is-valid").addClass("is-invalid")
+            ikctv.values.fr = null
+            ikctv.scores.fr = null
+        } else if (value==30) {
+            $("#fr_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
+            $("#fr_score").text("Puntaje: 0")
+            ikctv.values.fr = value
+            ikctv.scores.fr = 0
+        } else if (isBetween(value,31,45)) {
+            $("#fr_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
+            $("#fr_score").text("Puntaje: 1")
+            ikctv.values.fr = value
+            ikctv.scores.fr = 1
+        } else if (isBetween(value,46,60)) {
+            $("#fr_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
+            $("#fr_score").text("Puntaje: 2")
+            ikctv.values.fr = value
+            ikctv.scores.fr = 2
+        } else if (value > 60 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
+            $("#fr_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
+            $("#fr_score").text("Puntaje: 3")
+            ikctv.values.fr = value
+            ikctv.scores.fr = 3
+        } else {
+            $(this).removeClass("is-valid").addClass("is-invalid")
+        }
+    });
     $("#so").change(function () {
         value = $(this).val()
         if (value > 100) {
@@ -37,17 +76,31 @@ $(document).ready(function () {
             ikctv.scores.so = 0
         } else if (isBetween(value,95,97)) {
             $("#so_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 1")
+            ikctv.values.so = value
+            ikctv.scores.so = 1
         } else if (isBetween(value,92,94)) {
             $("#so_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 2")
+<<<<<<< HEAD
+=======
+            ikctv.values.so = value
+            ikctv.scores.so = 2
+>>>>>>> 2d7ace44896310ea31b7e7c8bafaf82fe71ea6a2
         } else if (value > 0 & value <= 91) {
             $("#so_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 3")
+            ikctv.values.so = value
+            ikctv.scores.so = 3
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
         }
     });
+
+
     function sum(ft, e, wh) {
         return ft + e + wh
     }
