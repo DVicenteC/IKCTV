@@ -1,11 +1,14 @@
 $(document).ready(function () {
     ikctv = {
         patient: {
-            "nombre":null
+            "nombre":null,
+            "birthday":null,
+            "age":null
         },
         values: {
             "fr":null,
-            "so":null
+            "so":null,
+            "event_date":null
 
         },
         scores: {
@@ -14,14 +17,12 @@ $(document).ready(function () {
         }}
     });
     $("#patient_birthday").change(function (){
-        //moment.defaultFormat = "DD-MM-YYYY";
-        //var now = moment();
-      //  var m = moment("#patient_birthday").format("DD-MM-YYYY")
-    //alert(m)
-        //console.log('Edad'+m.fromNow(true) + 'años');
-        var years = moment().diff("#patient_birthday", 'years', false);
-        var months = moment().diff("#patient_birthday".add(years, 'years'), 'months', false);
-    alert(years + ' years, ' + months + 'months');
+        now = moment();
+        ikctv.values.event_date = now
+        patient_birthday = moment($(this).val(), 'YYYY-MM-DD')
+        age = now.diff(patient_birthday,"days") / 365.25
+        $("#patient_age_box").show()
+        $("#patient_age").val(Math.round(age))
     });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
