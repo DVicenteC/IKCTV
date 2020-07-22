@@ -24,6 +24,10 @@ $(document).ready(function () {
         $("#patient_age_box").show()
         $("#patient_age").val(Math.round(age))
     });
+    $('input[name="apa"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.apa = parseInt($(this).val())
+    });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
     //     if (valor > 20 && valor < 30) {
