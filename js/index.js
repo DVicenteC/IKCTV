@@ -33,26 +33,32 @@ $(document).ready(function () {
     });
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
-        ikctv.scores.apa = parseInt($(this).val())
-    }),
+        ikctv.scores.apa = $(this).val()
+    });
     $('input[name="brd"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.brd = parseInt($(this).val())
-    }),  
+    }); 
     $('input[name="rxap"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.rxap = parseInt($(this).val()) 
-    }),
+    });
     $('input[name="uma"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.uma = parseInt($(this).val())   
-    }),            
+    });            
     $('input[name="rva"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.rva = parseInt($(this).val())  
-    }),
+    });
     $('input[name="mectos"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.mectos = parseInt($(this).val())  
-    }),
+    });
     $('input[name="pva"]').change(function (){
+        console.log($(this).val())
         ikctv.scores.pva = parseInt($(this).val())                      
-    }),
+    });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
     //     if (valor > 20 && valor < 30) {
@@ -63,7 +69,7 @@ $(document).ready(function () {
     // });
     function isBetween(n, a, b) {
         return (n - a) * (n - b) <= 0
-    },
+    };
     $("#fr").change(function () {
         value = $(this).val()
         if (value < 10) {
@@ -99,7 +105,7 @@ $(document).ready(function () {
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
         }
-    }),
+    });
     $("#so").change(function () {
         value = $(this).val()
         if (value > 100) {
@@ -133,15 +139,15 @@ $(document).ready(function () {
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
         }
-    }),
+    });
 
 
     function sum(ft, e, wh) {
         return ft + e + wh
-    },
+    };
     function partial_total(p, s, a) {
         return p * s * a
-    },
+    };
     function validate(id, v, m) {
         if (isBetween(v, 0, m)) {
             $(id).removeClass("is-invalid").addClass("is-valid")
@@ -154,14 +160,14 @@ $(document).ready(function () {
             valid_form = false
         }
         return valid_form
-    },
+    };
     function items(obj) {
         var i, arr = [];
         for (i in obj) {
             arr.push(obj[i]);
         }
         return arr;
-    },
+    };
     function calculate(part) {
         p = parseFloat($("#" + part + "-percentage").text())
         fissured_tongue = parseInt($("#" + part + "-fissured_tongue").val())
@@ -199,13 +205,13 @@ $(document).ready(function () {
             $("#" + part + "-partial_total").text("")
             total_values[part] = NaN
         }
-    },
+    };
     total_values = {
         apex: NaN,
         borders: NaN,
         lingual_belly: NaN,
         dorsum: NaN
-    },
+    };
     $("input").change(function () {
         calculate("apex")
         calculate("borders")
