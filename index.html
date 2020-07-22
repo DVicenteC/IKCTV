@@ -18,7 +18,7 @@
         <hr>
         <form>
             <div class="form-group row">
-                <label for="patient_rut" class="col-sm-1 col-form-label col-form-label-lg">RUT</label>
+                <label for="patient_rut" class="col-sm-2 col-form-label col-form-label-lg">RUT</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control form-control-lg" id="patient_rut">
                 </div>
@@ -31,41 +31,53 @@
             </div> -->
             <!-- <span id="fr_resultado"></span> -->
             <div class="form-group row">
-                <label for="patient_names" class="col-sm-1 col-form-label col-form-label-lg">Nombres Paciente</label>
+                <label for="patient_names" class="col-sm-2 col-form-label col-form-label-lg">Nombres Paciente</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control form-control-lg" id="patient_names">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="patient_paterno" class="col-sm-1 col-form-label col-form-label-lg">Apellido Paterno</label>
+                <label for="patient_paterno" class="col-sm-2 col-form-label col-form-label-lg">Apellido Paterno</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control form-control-lg" id="patient_paterno">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="patient_materno" class="col-sm-1 col-form-label col-form-label-lg">Apellido Materno</label>
+                <label for="patient_materno" class="col-sm-2 col-form-label col-form-label-lg">Apellido Materno</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control form-control-lg" id="patient_materno">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="observation_date" class="col-sm-1 col-form-label col-form-label-lg">Fecha de Nacimiento</label>
+                <label for="observation_date" class="col-sm-2 col-form-label col-form-label-lg">Fecha de Nacimiento</label>
                 <div class="col-sm-8">
                     <input type="date" class="form-control form-control-lg" id="observation_date">
                 </div>
             </div>
-            <tr>
-                <td>Frecuencia Respiratoria</td>
-                <td><input id="fr_cero" value="0" placeholder="30" type="text" class="form-control"
-                        size="3"></input>
-                        
-                </td>
-                <tr>
-                    <td>Saturación de O2</td>
-                    <td><input id="fr_cero" value="0" placeholder="30" type="text" class="form-control"
-                            size="3"></input>
-                            
-                    </td>    
+            <hr>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="form-group row">
+                        <label for="fr" class="col-sm col-form-label col-form-label-lg">Frecuencia Respiratoria</label>
+                        <div class="col-sm">
+                            <input type="text" class="form-control form-control-lg" id="fr">
+                            <span class="font-weight-light" id="fr_value">Valor: </span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="form-group row">
+                        <label for="so" class="col-sm col-form-label col-form-label-lg">Saturación de Oxígeno</label>
+                        <div class="col-sm">
+                            <input type="text" class="form-control form-control-lg" id="so">
+                            <span class="font-weight-light" id="fr_value">Valor: </span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
         </form>
 
         <!-- <div class="container">
