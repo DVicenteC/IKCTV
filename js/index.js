@@ -41,7 +41,7 @@ $(document).ready(function () {
         } else if (isBetween(value,92,94)) {
             $("#so_score").show()
             $("#so_score").text("Puntaje: 2")
-        } else if (value > 0 & value < 91) {
+        } else if (value > 0 & value <= 91) {
             $("#so_score").show()
             $("#so_score").text("Puntaje: 3")
         } else {
