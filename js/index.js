@@ -13,7 +13,14 @@ $(document).ready(function () {
         },
         scores: {
             "fr":null,
-            "so":null
+            "so":null,
+            "apa":null,
+            "brd":null,
+            "rxap":null,
+            "uma":null,
+            "rva":null,
+            "mectos":null,
+            "pva":null
         }}
     });
     $("#patient_birthday").change(function (){
@@ -27,6 +34,24 @@ $(document).ready(function () {
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
         ikctv.scores.apa = parseInt($(this).val())
+    $('input[name="brd"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.brd = parseInt($(this).val())  
+    $('input[name="rxap"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.rxap = parseInt($(this).val()) 
+    $('input[name="uma"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.uma = parseInt($(this).val())               
+    $('input[name="rva"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.rva = parseInt($(this).val())  
+    $('input[name="mectos"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.mectos = parseInt($(this).val())  
+    $('input[name="pva"]').change(function (){
+        console.log($(this).val())
+        ikctv.scores.pva = parseInt($(this).val())                      
     });
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
@@ -219,3 +244,5 @@ $(document).ready(function () {
         $("[for=file]").html(this.files[0].name);
         $("#preview").attr("src", URL.createObjectURL(this.files[0]));
     })
+
+    
