@@ -1,8 +1,15 @@
 $(document).ready(function () {
-    // resultados = {
-    //     "fr" : null,
-    //     "s02" : null
-    // }
+    ikctv = {
+        patient: {
+            "nombre":null
+        },
+        values: {
+            "so":null
+        },
+        scores: {
+            "so":null
+        }
+    }
     // $("#patient_fr").change(function () {
     //     valor = $(this).val()
     //     if (valor > 20 && valor < 30) {
@@ -14,6 +21,33 @@ $(document).ready(function () {
     function isBetween(n, a, b) {
         return (n - a) * (n - b) <= 0
     }
+    $("#so").change(function () {
+        value = $(this).val()
+        if (value > 100) {
+            console.log("error")
+            $("#so_score").hide()
+            $(this).removeClass("is-valid").addClass("is-invalid")
+            ikctv.values.so = null
+            ikctv.scores.so = null
+        } else if (isBetween(value,98,100)) {
+            $("#so_score").show()
+            $(this).removeClass("is-invalid").addClass("is-valid")
+            $("#so_score").text("Puntaje: 0")
+            ikctv.values.so = value
+            ikctv.scores.so = 0
+        } else if (isBetween(value,95,97)) {
+            $("#so_score").show()
+            $("#so_score").text("Puntaje: 1")
+        } else if (isBetween(value,92,94)) {
+            $("#so_score").show()
+            $("#so_score").text("Puntaje: 2")
+        } else if (value > 0 & value < 91) {
+            $("#so_score").show()
+            $("#so_score").text("Puntaje: 3")
+        } else {
+            $(this).removeClass("is-valid").addClass("is-invalid")
+        }
+    });
     function sum(ft, e, wh) {
         return ft + e + wh
     }
