@@ -84,11 +84,6 @@ $(document).ready(function () {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 2")
-<<<<<<< HEAD
-=======
-            ikctv.values.so = value
-            ikctv.scores.so = 2
->>>>>>> 2d7ace44896310ea31b7e7c8bafaf82fe71ea6a2
         } else if (value > 0 & value <= 91) {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
