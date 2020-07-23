@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
-        ikctv.scores.apa = $(this).val()
+        ikctv.scores.apa = parseInt($(this).val())
     });
     $('input[name="brd"]').change(function (){
         console.log($(this).val())
@@ -45,7 +45,7 @@ $(document).ready(function () {
     }); 
     $('input[name="rxap"]').change(function (){
         console.log($(this).val())
-        ikctv.scores.rxap = parseInt($(this).val()) 
+        ikctv.scores.rxap = parseInt($(this).val())
     });
     $('input[name="uma"]').change(function (){
         console.log($(this).val())
@@ -57,11 +57,11 @@ $(document).ready(function () {
     });
     $('input[name="mectos"]').change(function (){
         console.log($(this).val())
-        ikctv.scores.mectos = parseInt($(this).val())  
+        ikctv.scores.mectos = parseInt($(this).val()) 
     });
     $('input[name="pva"]').change(function (){
         console.log($(this).val())
-        ikctv.scores.pva = parseInt($(this).val())                      
+        ikctv.scores.pva = parseInt($(this).val())                     
     });
 
     function isBetween(n, a, b) {
