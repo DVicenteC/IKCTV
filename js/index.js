@@ -29,7 +29,7 @@ $(document).ready(function () {
         patient_birthday = moment($(this).val(), 'YYYY-MM-DD')
         age = now.diff(patient_birthday,"days") / 365.25
         $("#patient_age_box").show()
-        $("#patient_age").val(Math.round(age) + 'años')
+        $("#patient_age").val(Math.round(age) + ' años')
     });
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
