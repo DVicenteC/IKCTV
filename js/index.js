@@ -104,6 +104,9 @@ $(document).ready(function () {
             ikctv.scores.fr = 3
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
+            $("#fr_score").hide()
+            ikctv.values.fr = null
+            ikctv.scores.fr = null
         }
     });
     $("#so").change(function () {
@@ -138,6 +141,9 @@ $(document).ready(function () {
             ikctv.scores.so = 3
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
+            $("#so_score").hide()
+            ikctv.values.so = null
+            ikctv.scores.so = null
         }
     });
 
