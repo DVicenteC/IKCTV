@@ -253,3 +253,14 @@ $(document).ready(function () {
         $("[for=file]").html(this.files[0].name);
         $("#preview").attr("src", URL.createObjectURL(this.files[0]))
     }))
+
+    function calcularscore(){
+		//debugger;
+		var suma = 0;
+		for (let [key, value] of Object.entries(ikctv.scores)){
+			//console.log(key, value);
+			suma = suma + value;
+			console.log(suma);
+			$("#suma").text(suma)
+		}
+	}
