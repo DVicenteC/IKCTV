@@ -28,8 +28,12 @@ $(document).ready(function () {
         ikctv.values.event_date = now
         patient_birthday = moment($(this).val(), 'YYYY-MM-DD')
         age = now.diff(patient_birthday,"days") / 365.25
+        //age = now.diff(patient_birthday, "months", true) /12
         $("#patient_age_box").show()
-        $("#patient_age").val(Math.round(age) + ' años')
+        $("#patient_age").val(Math.round(age))
+        //$("#patient_age_box_month").show()
+        //$("#patient_age").val(Math.round(age_months))
+        $("#años").show()        
     });
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
@@ -59,14 +63,7 @@ $(document).ready(function () {
         console.log($(this).val())
         ikctv.scores.pva = parseInt($(this).val())                      
     });
-    // $("#patient_fr").change(function () {
-    //     valor = $(this).val()
-    //     if (valor > 20 && valor < 30) {
-    //         resultados["fr"] = 2
-    //     } else {
-    //         $(this).removeClass("is-invalid").addClass("is-valid")
-    //     }
-    // });
+
     function isBetween(n, a, b) {
         return (n - a) * (n - b) <= 0
     };
@@ -169,7 +166,7 @@ $(document).ready(function () {
         return arr;
     };
     function calculate(part) {
-        p = parseFloat($("#" + part + "-percentage").text())
+        p = ($("#" + part + "-percentage").text())
         fissured_tongue = parseInt($("#" + part + "-fissured_tongue").val())
         fissured_tongue_valid = validate("#" + part + "-fissured_tongue", fissured_tongue, 1)
 
