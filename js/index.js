@@ -20,7 +20,8 @@ $(document).ready(function () {
             "uma":null,
             "rva":null,
             "mectos":null,
-            "pva":null
+            "pva":null,
+            "MP":null,
         }}
     });
     $("#patient_birthday").change(function (){
@@ -87,8 +88,8 @@ $(document).ready(function () {
             if (value < 10) {
                 console.log("error")
                 $("#fr_score").show()
+                $(this).removeClass("is-valid").addClass("is-invalid")              
                 $("#fr_score").text("No válido")
-                $(this).removeClass("is-valid").addClass("is-invalid")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
             } else if (value==30) {
@@ -208,8 +209,9 @@ $(document).ready(function () {
         value = $(this).val()
         if (value > 100) {
             console.log("error")
-            $("#so_score").hide()
+            $("#so_score").show()
             $(this).removeClass("is-valid").addClass("is-invalid")
+            $("#so_score").text("No válido")
             ikctv.values.so = null
             ikctv.scores.so = null
         } else if (isBetween(value,98,100)) {
@@ -228,7 +230,7 @@ $(document).ready(function () {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 2")
-        } else if (value > 0 & value <= 91) {
+        } else if (isBetween(value,65,93)) {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 3")
@@ -236,7 +238,8 @@ $(document).ready(function () {
             ikctv.scores.so = 3
         } else {
             $(this).removeClass("is-valid").addClass("is-invalid")
-            $("#so_score").hide()
+            $("#so_score").show()
+             $("#so_score").text("No válido")
             ikctv.values.so = null
             ikctv.scores.so = null
         }
@@ -352,7 +355,7 @@ $(document).ready(function () {
         $("#preview").attr("src", URL.createObjectURL(this.files[0]))
     }))
 
-    function calcularscore(){
+   function calcularscore(){
 		//debugger;
 		var suma = 0;
 		for (let [key, value] of Object.entries(ikctv.scores)){
@@ -360,5 +363,26 @@ $(document).ready(function () {
 			suma = suma + value;
 			console.log(suma);
 			$("#suma").text(suma)
-		}
-	}
+            if (isBetween(suma,0,9)){
+                $("#result").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").css({'color':'green', 'font-weight': 'bold'});
+                $("#result").text("Examinar la necesidad de aplicar técnicas de kinesiterapia respiratoria.")
+                               
+            }else if (isBetween(suma,10,15)){
+                $("#result").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").css({'color':'yellow', 'font-weight': 'bold'});
+                $("#result").text("Realizar técnicas de kinesiterapia respiratoria y examinar la necesidad de aspiración de secreciones.")
+            }else if (isBetween(suma,16,27)){
+                $("#result").show()
+                $("#result").css({'color':'red', 'font-weight': 'bold'});
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").text("con 3 puntos en RVA, 3 en UMA y/o FR>60 ciclos/minuto, en pacientes mayores de 6 meses y FR>70 ciclos/minuto en menores de 6 meses: sólo aspirar y examinar.")
+            }
+        }
+
+    }
+  
+        
+  
