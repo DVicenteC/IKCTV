@@ -27,13 +27,18 @@ $(document).ready(function () {
         now = moment();
         ikctv.values.event_date = now
         patient_birthday = moment($(this).val(), 'YYYY-MM-DD')
-        age = now.diff(patient_birthday,"days") / 365.25
-        //age = now.diff(patient_birthday, "months", true) /12
-        $("#patient_age_box").show()
-        $("#patient_age").val(Math.round(age))
-        //$("#patient_age_box_month").show()
-        //$("#patient_age").val(Math.round(age_months))
-        $("#años").show()        
+        years = Math.round(now.diff(patient_birthday,"years")) // 365.25   
+        month = Math.round(now.diff(patient_birthday, "months", true)) //12    
+        ikctv.values.age = month
+        if (years > 0) {
+            a=years*12
+            b=month-a
+            $("#patient_age_box").show()
+            $("#patient_age").val(`${years} año(s) ${b} meses`)
+        } else {
+            $("#patient_age_box").show()
+            $("#patient_age").val(`${years} año(s) ${month} meses`)
+        }     
     });
     $('input[name="apa"]').change(function (){
         console.log($(this).val())
