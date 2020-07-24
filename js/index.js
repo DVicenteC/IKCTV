@@ -27,10 +27,19 @@ $(document).ready(function () {
         now = moment();
         ikctv.values.event_date = now
         patient_birthday = moment($(this).val(), 'YYYY-MM-DD')
-        years = Math.round(now.diff(patient_birthday,"years")) // 365.25   
-        month = Math.round(now.diff(patient_birthday, "months", true)) //12    
+        years = Math.floor(now.diff(patient_birthday,"years")) // 365.25   
+        month = Math.floor(now.diff(patient_birthday, "months", true)) //12    
+        days = now.diff(patient_birthday,"days")
         ikctv.values.age = month
-        if (years > 0) {
+
+        if ( days < 0.001) {
+            console.log("error")
+            $("#patient_age_box").show()
+            $("#patient_age").val(`Fecha no válida`)
+            //$(this).removeClass("is-valid").addClass("is-invalid")
+            ikctv.values.age = null
+        }
+        else if (years > 0) {
             a=years*12
             b=month-a
             $("#patient_age_box").show()
@@ -73,42 +82,82 @@ $(document).ready(function () {
         return (n - a) * (n - b) <= 0
     };
     $("#fr").change(function () {
-        value = $(this).val()
-        if (value < 10) {
-            console.log("error")
-            $("#fr_score").hide()
-            $(this).removeClass("is-valid").addClass("is-invalid")
-            ikctv.values.fr = null
-            ikctv.scores.fr = null
-        } else if (value==30) {
-            $("#fr_score").show()
-            $(this).removeClass("is-invalid").addClass("is-valid")
-            $("#fr_score").text("Puntaje: 0")
-            ikctv.values.fr = value
-            ikctv.scores.fr = 0
-        } else if (isBetween(value,31,45)) {
-            $("#fr_score").show()
-            $(this).removeClass("is-invalid").addClass("is-valid")
-            $("#fr_score").text("Puntaje: 1")
-            ikctv.values.fr = value
-            ikctv.scores.fr = 1
-        } else if (isBetween(value,46,60)) {
-            $("#fr_score").show()
-            $(this).removeClass("is-invalid").addClass("is-valid")
-            $("#fr_score").text("Puntaje: 2")
-            ikctv.values.fr = value
-            ikctv.scores.fr = 2
-        } else if (value > 60 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
-            $("#fr_score").show()
-            $(this).removeClass("is-invalid").addClass("is-valid")
-            $("#fr_score").text("Puntaje: 3")
-            ikctv.values.fr = value
-            ikctv.scores.fr = 3
+        if (month >= 6) {
+            value = $(this).val()
+            if (value < 10) {
+                console.log("error")
+                $("#fr_score").hide()
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            } else if (value==30) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 0")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 0
+            } else if (isBetween(value,31,45)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 1")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 1
+            } else if (isBetween(value,46,60)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 2")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 2
+            } else if (value > 60 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 3")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 3
+            } else {
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                $("#fr_score").hide()
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            }
         } else {
-            $(this).removeClass("is-valid").addClass("is-invalid")
-            $("#fr_score").hide()
-            ikctv.values.fr = null
-            ikctv.scores.fr = null
+            value = $(this).val()
+            if (value < 10) {
+                console.log("error")
+                $("#fr_score").hide()
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            } else if (value==40) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 0")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 0
+            } else if (isBetween(value,41,55)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 1")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 1
+            } else if (isBetween(value,56,70)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 2")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 2
+            } else if (value > 70 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 3")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 3
+            } else {
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                $("#fr_score").hide()
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            }
         }
     });
     $("#so").change(function () {
