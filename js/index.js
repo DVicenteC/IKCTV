@@ -82,11 +82,12 @@ $(document).ready(function () {
         return (n - a) * (n - b) <= 0
     };
     $("#fr").change(function () {
-        if (month >= 6) {
+        if (month >= 6 && month <180)  {
             value = $(this).val()
             if (value < 10) {
                 console.log("error")
-                $("#fr_score").hide()
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
                 $(this).removeClass("is-valid").addClass("is-invalid")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
@@ -116,15 +117,17 @@ $(document).ready(function () {
                 ikctv.scores.fr = 3
             } else {
                 $(this).removeClass("is-valid").addClass("is-invalid")
-                $("#fr_score").hide()
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
             }
-        } else {
+        } else if (month < 6 ) {
             value = $(this).val()
-            if (value < 10) {
-                console.log("error")
-                $("#fr_score").hide()
+            if (isBetween(value,0,40)) {
+                console.log("error")            
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
                 $(this).removeClass("is-valid").addClass("is-invalid")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
@@ -154,7 +157,48 @@ $(document).ready(function () {
                 ikctv.scores.fr = 3
             } else {
                 $(this).removeClass("is-valid").addClass("is-invalid")
-                $("#fr_score").hide()
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            }
+        } else {
+            value = $(this).val()
+            if (value < 10) {
+                console.log("error")
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                ikctv.values.fr = null
+                ikctv.scores.fr = null
+            } else if (isBetween(value,10,16)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 0")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 0
+            } else if (isBetween(value,17,25)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 1")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 1
+            } else if (isBetween(value,26,34)) {
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 2")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 2
+            } else if (value >= 35 & value <= 70) {   //Consultar a Luz Máximo FR en pacientes
+                $("#fr_score").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#fr_score").text("Puntaje: 3")
+                ikctv.values.fr = value
+                ikctv.scores.fr = 3
+            } else {
+                $(this).removeClass("is-valid").addClass("is-invalid")
+                $("#fr_score").show()
+                $("#fr_score").text("No válido")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
             }
