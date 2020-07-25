@@ -85,14 +85,14 @@ $(document).ready(function () {
     $("#fr").change(function () {
         if (month >= 6 && month <180)  {
             value = $(this).val()
-            if (value < 10) {
+            if (value < 23) {
                 console.log("error")
                 $("#fr_score").show()
                 $(this).removeClass("is-valid").addClass("is-invalid")              
                 $("#fr_score").text("No válido")
                 ikctv.values.fr = null
                 ikctv.scores.fr = null
-            } else if (value==30) {
+            } else if (isBetween(value,20,30)) {
                 $("#fr_score").show()
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#fr_score").text("Puntaje: 0")
@@ -110,7 +110,7 @@ $(document).ready(function () {
                 $("#fr_score").text("Puntaje: 2")
                 ikctv.values.fr = value
                 ikctv.scores.fr = 2
-            } else if (value > 60 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
+            } else if (value > 60 & value <= 80) {   //Consultar a Luz Máximo FR en pacientes
                 $("#fr_score").show()
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#fr_score").text("Puntaje: 3")
@@ -125,7 +125,7 @@ $(document).ready(function () {
             }
         } else if (month < 6 ) {
             value = $(this).val()
-            if (isBetween(value,0,40)) {
+            if (isBetween(value,25,40)) {
                 console.log("error")            
                 $("#fr_score").show()
                 $("#fr_score").text("No válido")
@@ -150,7 +150,7 @@ $(document).ready(function () {
                 $("#fr_score").text("Puntaje: 2")
                 ikctv.values.fr = value
                 ikctv.scores.fr = 2
-            } else if (value > 70 & value <= 120) {   //Consultar a Luz Máximo FR en pacientes
+            } else if (value > 70 & value <= 90) {   //Consultar a Luz Máximo FR en pacientes
                 $("#fr_score").show()
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#fr_score").text("Puntaje: 3")
@@ -355,34 +355,98 @@ $(document).ready(function () {
         $("#preview").attr("src", URL.createObjectURL(this.files[0]))
     }))
 
-   function calcularscore(){
-		//debugger;
-		var suma = 0;
-		for (let [key, value] of Object.entries(ikctv.scores)){
-			//console.log(key, value);
-			suma = suma + value;
-			console.log(suma);
-			$("#suma").text(suma)
+    function calcular(a,b,c,d,e,f,g,h,i){
+        s= a+b+c+d+e+f+g+h+i
+        return s
+    }
+    function validador (){
+        if (ikctv.scores.fr != null && ikctv.scores.so!=null && ikctv.scores.apa!=null && ikctv.scores.brd!=null &&
+            ikctv.scores.rxap!=null && ikctv.scores.uma!=null && ikctv.scores.rva!=null && ikctv.scores.mectos!=null
+            && ikctv.scores.pva!=null) {
+            suma = calcular(ikctv.scores.fr, ikctv.scores.so, ikctv.scores.apa,ikctv.scores.brd,
+            ikctv.scores.rxap, ikctv.scores.uma, ikctv.scores.rva, ikctv.scores.mectos, ikctv.scores.pva)
+            $("#suma").text(suma)
             if (isBetween(suma,0,9)){
+                $("#suma").show()
                 $("#result").show()
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#result").css({'color':'green', 'font-weight': 'bold'});
-                $("#result").text("Examinar la necesidad de aplicar técnicas de kinesiterapia respiratoria.")
-                               
+                $("#result").text("Examinar la necesidad de aplicar técnicas de kinesiterapia respiratoria.")                               
             }else if (isBetween(suma,10,15)){
+                $("#suma").show()
                 $("#result").show()
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#result").css({'color':'yellow', 'font-weight': 'bold'});
                 $("#result").text("Realizar técnicas de kinesiterapia respiratoria y examinar la necesidad de aspiración de secreciones.")
             }else if (isBetween(suma,16,27)){
+                $("#suma").show()
                 $("#result").show()
                 $("#result").css({'color':'red', 'font-weight': 'bold'});
                 $(this).removeClass("is-invalid").addClass("is-valid")
                 $("#result").text("con 3 puntos en RVA, 3 en UMA y/o FR>60 ciclos/minuto, en pacientes mayores de 6 meses y FR>70 ciclos/minuto en menores de 6 meses: sólo aspirar y examinar.")
-            }
+            }                      
+        } else if (ikctv.scores.fr != null && ikctv.scores.so!= null && ikctv.scores.apa!= null && ikctv.scores.brd!= null &&
+            ikctv.scores.uma!= null && ikctv.scores.rva!= null && ikctv.scores.mectos!= null && ikctv.scores.pva!= null &&
+            ikctv.scores.mp!= null) {
+            suma = calcular(ikctv.scores.fr, ikctv.scores.so, ikctv.scores.apa,ikctv.scores.brd,
+            ikctv.scores.mp, ikctv.scores.uma, ikctv.scores.rva, ikctv.scores.mectos, ikctv.scores.pva)
+            $("#suma").text(suma)
+            if (isBetween(suma,0,9)){
+                $("#suma").show()
+                $("#result").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").css({'color':'green', 'font-weight': 'bold'});
+                $("#result").text("Examinar la necesidad de aplicar técnicas de kinesiterapia respiratoria.")                               
+            }else if (isBetween(suma,10,15)){
+                $("#suma").show()
+                $("#result").show()
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").css({'color':'yellow', 'font-weight': 'bold'});
+                $("#result").text("Realizar técnicas de kinesiterapia respiratoria y examinar la necesidad de aspiración de secreciones.")
+            }else if (isBetween(suma,16,27)){
+                $("#suma").show()
+                $("#result").show()
+                $("#result").css({'color':'red', 'font-weight': 'bold'});
+                $(this).removeClass("is-invalid").addClass("is-valid")
+                $("#result").text("con 3 puntos en RVA, 3 en UMA y/o FR>60 ciclos/minuto, en pacientes mayores de 6 meses y FR>70 ciclos/minuto en menores de 6 meses: sólo aspirar y examinar.")
+            }        
+        } else {
+            $("#result").show()
+            $(this).removeClass("is-valid").addClass("is-invalid")
+            $("#result").css({'color':'red', 'font-weight': 'bold'});
+            $("#result").text("Ud. Debe completar todos los datos antes de calcular")
         }
-
     }
+
+ //  function calcularscore(suma){
+        //debugger;
+    	//var suma = 0;
+		//for (let [key, value] of Object.entries(ikctv.scores)){
+			//console.log(key, value);
+		//	suma = suma + value;
+		//	console.log(suma);
+		//	$("#suma").text(suma)
+   //         if (isBetween(suma,0,9)){
+     //           $("#result").show()
+       //         $(this).removeClass("is-invalid").addClass("is-valid")
+         //       $("#result").css({'color':'green', 'font-weight': 'bold'});
+           //     $("#result").text("Examinar la necesidad de aplicar técnicas de kinesiterapia respiratoria.")
+                               
+          //  }else if (isBetween(suma,10,15)){
+            //    $("#result").show()
+              //  $(this).removeClass("is-invalid").addClass("is-valid")
+             //   $("#result").css({'color':'yellow', 'font-weight': 'bold'});
+               // $("#result").text("Realizar técnicas de kinesiterapia respiratoria y examinar la necesidad de aspiración de secreciones.")
+ //           }else if (isBetween(suma,16,27)){
+   //             $("#result").show()
+     //           $("#result").css({'color':'red', 'font-weight': 'bold'});
+       //         $(this).removeClass("is-invalid").addClass("is-valid")
+         //       $("#result").text("con 3 puntos en RVA, 3 en UMA y/o FR>60 ciclos/minuto, en pacientes mayores de 6 meses y FR>70 ciclos/minuto en menores de 6 meses: sólo aspirar y examinar.")
+  //          }
+    //    }
+        
+   // }
+   //}
   
         
   
