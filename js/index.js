@@ -230,7 +230,9 @@ $(document).ready(function () {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 2")
-        } else if (isBetween(value,65,93)) {
+            ikctv.values.so = value
+            ikctv.scores.so = 2
+        } else if (isBetween(value,65,91)) {
             $("#so_score").show()
             $(this).removeClass("is-invalid").addClass("is-valid")
             $("#so_score").text("Puntaje: 3")
