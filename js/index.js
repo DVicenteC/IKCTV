@@ -85,7 +85,7 @@ $(document).ready(function () {
     $("#fr").change(function () {
         if (month >= 6 && month <180)  {
             value = $(this).val()
-            if (value < 23) {
+            if (value < 20) {
                 console.log("error")
                 $("#fr_score").show()
                 $(this).removeClass("is-valid").addClass("is-invalid")              
